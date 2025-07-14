@@ -1,377 +1,138 @@
-<h1 align="center">Gabi AI - Plataforma de Agentes de IA</h1>
+# 🚀 Gabi AI - Plataforma de Agentes de IA
 
 <div align="center">
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](./LICENSE)
+[![EasyPanel](https://img.shields.io/badge/EasyPanel-Template-brightgreen)](https://easypanel.io)
 
 </div>
 
-## Gabi AI - Plataforma de Agentes de IA
+## 📖 Sobre
 
-Esta é uma aplicação baseada no Evo AI, agora personalizada como Gabi AI, uma plataforma open-source para criar e gerenciar agentes de IA, permitindo integração com diferentes modelos e serviços de IA.
+**Gabi AI** é uma plataforma open-source para criar e gerenciar agentes de IA, permitindo integração com diferentes modelos e serviços de IA. Baseada em tecnologias modernas, oferece uma interface intuitiva para desenvolvimento e deploy de agentes inteligentes.
 
-## 🚀 Visão Geral
+## ✨ Características Principais
 
-A plataforma permite:
+- 🤖 **Múltiplos Tipos de Agentes**: LLM, A2A, Sequential, Parallel, Loop, Workflow, Task
+- 🔧 **Integração Flexível**: OpenAI, Anthropic, Google ADK, CrewAI
+- 🛡️ **Segurança**: JWT Authentication, API Key Management, Email Verification
+- 📊 **Observabilidade**: Langfuse Integration, OpenTelemetry
+- 🎨 **Interface Moderna**: Next.js 15, React 18, Tailwind CSS
+- 🐳 **Container Ready**: Docker & EasyPanel Support
+- 🔄 **A2A Protocol**: Agent-to-Agent interoperability
+- 📈 **Workflow Builder**: Visual workflow creation with LangGraph
 
-- Criação e gerenciamento de agentes de IA
-- Integração com diferentes modelos de linguagem
-- Gerenciamento de clientes e configuração de servidores MCP
-- Gerenciamento de ferramentas personalizadas
-- **[Google Agent Development Kit (ADK)](https://google.github.io/adk-docs/)**: Framework base para desenvolvimento de agentes
-- **[CrewAI Support](https://github.com/crewAI/crewAI)**: Framework alternativo para desenvolvimento de agentes (em desenvolvimento)
-- Autenticação JWT com verificação de email
-- **[Agent 2 Agent (A2A) Protocol Support](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)**: Interoperabilidade entre agentes de IA
-- **[Workflow Agent with LangGraph](https://www.langchain.com/langgraph)**: Construção de workflows complexos de agentes
-- **Secure API Key Management**: Armazenamento criptografado de chaves de API
-- **Agent Organization**: Estrutura de pastas para organizar agentes por categorias
+## 🚀 Instalação Rápida
 
-## 🤖 Agent Types
+### Via EasyPanel (Recomendado)
 
-Gabi AI supports different types of agents that can be flexibly combined:
+1. **Acesse o EasyPanel** na sua VPS
+2. **Crie um novo projeto** e selecione "Template"
+3. **Escolha "Gabi AI"** na lista de templates
+4. **Configure as variáveis** de ambiente
+5. **Deploy automático** - pronto para usar!
 
-### 1. LLM Agent (Language Model)
+### Instalação Manual
 
-Agent based on language models like GPT-4, Claude, etc. Can be configured with tools, MCP servers, and sub-agents.
+#### Pré-requisitos
+- Python 3.10+
+- Node.js 18+
+- PostgreSQL 13+
+- Redis 6+
 
-### 2. A2A Agent (Agent-to-Agent)
-
-Agent that implements Google's A2A protocol for agent interoperability.
-
-### 3. Sequential Agent
-
-Executes a sequence of sub-agents in a specific order.
-
-### 4. Parallel Agent
-
-Executes multiple sub-agents simultaneously.
-
-### 5. Loop Agent
-
-Executes sub-agents in a loop with a defined maximum number of iterations.
-
-### 6. Workflow Agent
-
-Executes sub-agents in a custom workflow defined by a graph structure using LangGraph.
-
-### 7. Task Agent
-
-Executes a specific task using a target agent with structured task instructions.
-
-## 🛠️ Technologies
-
-### Backend
-- **FastAPI**: Web framework for building the API
-- **SQLAlchemy**: ORM for database interaction
-- **PostgreSQL**: Main database
-- **Alembic**: Migration system
-- **Pydantic**: Data validation and serialization
-- **Uvicorn**: ASGI server
-- **Redis**: Cache and session management
-- **JWT**: Secure token authentication
-- **SendGrid/SMTP**: Email service for notifications (configurable)
-- **Jinja2**: Template engine for email rendering
-- **Bcrypt**: Password hashing and security
-- **LangGraph**: Framework for building stateful, multi-agent workflows
-
-### Frontend
-- **Next.js 15**: React framework with App Router
-- **React 18**: User interface library
-- **TypeScript**: Type-safe JavaScript
-- **Tailwind CSS**: Utility-first CSS framework
-- **shadcn/ui**: Modern component library
-- **React Hook Form**: Form management
-- **Zod**: Schema validation
-- **ReactFlow**: Node-based visual workflows
-- **React Query**: Server state management
-
-## 📊 Langfuse Integration (Tracing & Observability)
-
-Gabi AI platform natively supports integration with [Langfuse](https://langfuse.com/) for detailed tracing of agent executions, prompts, model responses, and tool calls, using the OpenTelemetry (OTel) standard.
-
-### How to configure
-
-1. **Set environment variables in your `.env`:**
-
-   ```env
-   LANGFUSE_PUBLIC_KEY="pk-lf-..."
-   LANGFUSE_SECRET_KEY="sk-lf-..."
-   OTEL_EXPORTER_OTLP_ENDPOINT="https://cloud.langfuse.com/api/public/otel"
-   ```
-
-2. **View in the Langfuse dashboard**
-   - Access your Langfuse dashboard to see real-time traces.
-
-## 🤖 Agent 2 Agent (A2A) Protocol Support
-
-Gabi AI implements the Google's Agent 2 Agent (A2A) protocol, enabling seamless communication and interoperability between AI agents.
-
-For more information about the A2A protocol, visit [Google's A2A Protocol Documentation](https://google.github.io/A2A/).
-
-## 📋 Prerequisites
-
-### Backend
-- **Python**: 3.10 or higher
-- **PostgreSQL**: 13.0 or higher
-- **Redis**: 6.0 or higher
-- **Git**: For version control
-- **Make**: For running Makefile commands
-
-### Frontend
-- **Node.js**: 18.0 or higher
-- **pnpm**: Package manager (recommended) or npm/yarn
-
-## 🔧 Installation
-
-### 1. Clone the Repository
+#### Passo a Passo
 
 ```bash
+# 1. Clone o repositório
 git clone https://github.com/resper1965/Gabi-AI.git
 cd gabi-ai
-```
 
-### 2. Backend Setup
+# 2. Configure o ambiente
+cp env.easypanel.example .env
+# Edite o arquivo .env com suas configurações
 
-#### Virtual Environment and Dependencies
+# 3. Execute o script de setup
+bash scripts/easypanel-setup.sh
 
-```bash
-# Create and activate virtual environment
-make venv
-source venv/bin/activate  # Linux/Mac
-# or on Windows: venv\Scripts\activate
-
-# Install development dependencies
-make install-dev
-```
-
-#### Environment Configuration
-
-```bash
-# Copy and configure backend environment
-cp .env.example .env
-# Edit the .env file with your database, Redis, and other settings
-```
-
-#### Database Setup
-
-```bash
-# Initialize database and apply migrations
-make alembic-upgrade
-
-# Seed initial data (admin user, sample clients, etc.)
-make seed-all
-```
-
-### 3. Frontend Setup
-
-#### Install Dependencies
-
-```bash
-# Navigate to frontend directory
-cd frontend
-
-# Install dependencies using pnpm (recommended)
-pnpm install
-
-# Or using npm
-# npm install
-
-# Or using yarn
-# yarn install
-```
-
-#### Frontend Environment Configuration
-
-```bash
-# Copy and configure frontend environment
-cp .env.example .env
-# Edit .env with your API URL (default: http://localhost:8000)
-```
-
-The frontend `.env` should contain:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
-```
-
-## 🚀 Running the Application
-
-### Development Mode
-
-#### Start Backend (Terminal 1)
-```bash
-# From project root
-make run
-# Backend will be available at http://localhost:8000
-```
-
-#### Start Frontend (Terminal 2)
-```bash
-# From frontend directory
-cd frontend
-pnpm dev
-
-# Or using npm/yarn
-# npm run dev
-# yarn dev
-
-# Frontend will be available at http://localhost:3000
-```
-
-### Production Mode
-
-#### Backend
-```bash
-make run-prod    # Production with multiple workers
-```
-
-#### Frontend
-```bash
-cd frontend
-pnpm build && pnpm start
-
-# Or using npm/yarn
-# npm run build && npm start
-# yarn build && yarn start
-```
-
-## 🐳 Docker Installation
-
-### Full Stack with Docker Compose
-
-```bash
-# Build and start all services (backend + database + redis)
-make docker-build
-make docker-up
-
-# Initialize database with seed data
-make docker-seed
-```
-
-### Frontend with Docker
-
-```bash
-# From frontend directory
-cd frontend
-
-# Build frontend image
-docker build -t gabi-ai-frontend .
-
-# Run frontend container
-docker run -p 3000:3000 -e NEXT_PUBLIC_API_URL=http://localhost:8000 gabi-ai-frontend
-```
-
-Or using the provided docker-compose:
-
-```bash
-# From frontend directory
-cd frontend
+# 4. Inicie com Docker Compose
 docker-compose up -d
 ```
 
-## 🎯 Getting Started
+## 🛠️ Tecnologias
 
-After installation, follow these steps:
+### Backend
+- **FastAPI** - Web framework
+- **SQLAlchemy** - ORM
+- **PostgreSQL** - Database
+- **Redis** - Cache
+- **JWT** - Authentication
+- **LangGraph** - Workflows
 
-1. **Access the Frontend**: Open `http://localhost:3000`
-2. **Create Admin Account**: Use the seeded admin credentials or register a new account
-3. **Configure MCP Server**: Set up your first MCP server connection
-4. **Create Client**: Add a client to organize your agents
-5. **Build Your First Agent**: Create and configure your AI agent
-6. **Test Agent**: Use the chat interface to interact with your agent
+### Frontend
+- **Next.js 15** - React framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **shadcn/ui** - Components
+- **ReactFlow** - Workflows
 
-### Default Admin Credentials
+## 📋 Configuração
 
-After running the seeders, you can login with:
-- **Email**: Check the seeder output for the generated admin email
-- **Password**: Check the seeder output for the generated password
+### Variáveis de Ambiente Essenciais
 
-## 🖥️ API Documentation
+```env
+# Database
+POSTGRES_PASSWORD=sua-senha-segura
 
-The interactive API documentation is available at:
+# Application
+SECRET_KEY=sua-chave-secreta
+ADMIN_EMAIL=admin@exemplo.com
+ADMIN_PASSWORD=senha-admin
 
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
+# AI APIs (opcionais)
+OPENAI_API_KEY=sua-chave-openai
+ANTHROPIC_API_KEY=sua-chave-anthropic
 
-## 👨‍💻 Development Commands
-
-### Backend Commands
-```bash
-# Database migrations
-make alembic-upgrade            # Update database to latest version
-make alembic-revision message="description"  # Create new migration
-
-# Seeders
-make seed-all                   # Run all seeders
-
-# Code verification
-make lint                       # Verify code with flake8
-make format                     # Format code with black
+# Email (opcional)
+SENDGRID_API_KEY=sua-chave-sendgrid
 ```
 
-### Frontend Commands
-```bash
-# From frontend directory
-cd frontend
+## 🎯 Primeiro Acesso
 
-# Development
-pnpm dev                        # Start development server
-pnpm build                      # Build for production
-pnpm start                      # Start production server
-pnpm lint                       # Run ESLint
-```
+1. **Acesse**: `http://seu-dominio.com` ou `http://localhost:3000`
+2. **Login**: Use as credenciais configuradas em `ADMIN_EMAIL` e `ADMIN_PASSWORD`
+3. **Configure**: MCP servers, clientes e agentes
+4. **Teste**: Use o chat para interagir com seus agentes
 
-## 🚀 Configuration
+## 📚 Documentação
 
-### Backend Configuration (.env file)
+- **API Docs**: `http://localhost:8000/docs`
+- **Instalação EasyPanel**: [INSTALACAO_EASYPANEL.md](./INSTALACAO_EASYPANEL.md)
+- **Desenvolvimento**: [DEVELOPMENT.md](./DEVELOPMENT.md)
 
-Key settings include:
+## 🔧 Comandos Úteis
 
 ```bash
-# Database settings
-POSTGRES_CONNECTION_STRING="postgresql://postgres:root@localhost:5432/gabi_ai"
+# Desenvolvimento
+make run              # Iniciar backend
+cd frontend && pnpm dev  # Iniciar frontend
 
-# Redis settings
-REDIS_HOST="localhost"
-REDIS_PORT=6379
+# Docker
+docker-compose up -d  # Iniciar todos os serviços
+docker-compose logs   # Ver logs
 
-# AI Engine configuration
-AI_ENGINE="adk"  # Options: "adk" (Google Agent Development Kit) or "crewai" (CrewAI framework)
-
-# JWT settings
-JWT_SECRET_KEY="your-jwt-secret-key"
-
-# Email provider configuration
-EMAIL_PROVIDER="sendgrid"  # Options: "sendgrid" or "smtp"
-
-# Encryption for API keys
-ENCRYPTION_KEY="your-encryption-key"
+# Database
+make alembic-upgrade  # Aplicar migrações
+make seed-all        # Popular dados iniciais
 ```
 
-### Frontend Configuration (.env file)
+## 🤝 Contribuindo
 
-```bash
-# API Configuration
-NEXT_PUBLIC_API_URL="http://localhost:8000"  # Backend API URL
-```
+Contribuições são bem-vindas! Por favor, leia nossas diretrizes de contribuição antes de submeter pull requests.
 
-> **Note**: While Google ADK is fully supported, the CrewAI engine option is still under active development. For production environments, it's recommended to use the default "adk" engine.
+## 📄 Licença
 
-## 🔐 Authentication
+Este projeto está licenciado sob a [Apache License 2.0](./LICENSE).
 
-The API uses JWT (JSON Web Token) authentication with:
+---
 
-- User registration and email verification
-- Login to obtain JWT tokens
-- Password recovery flow
-- Account lockout after multiple failed login attempts
-
-
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
-
-## 📄 License
-
-This project is licensed under the [Apache License 2.0](./LICENSE).
+**⭐ Se este projeto foi útil para você, considere dar uma estrela no GitHub!**
