@@ -183,15 +183,15 @@ export default function Sidebar() {
               <div className="h-10 w-10 flex items-center justify-center bg-neutral-800/50 rounded-full p-1">
                 <Image
                   src="https://evolution-api.com/files/evo/favicon.svg"
-                  alt="Evolution API"
+                  alt="Nova Aplicação"
                   width={40}
                   height={40}
                 />
               </div>
             ) : (
               <Image
-                src="https://evolution-api.com/files/evo/logo-evo-ai.svg"
-                alt="Evolution API"
+                src="/logo.svg"
+                                  alt="Nova Aplicação"
                 width={90}
                 height={40}
                 className="mt-2"

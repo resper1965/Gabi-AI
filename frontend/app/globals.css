@@ -2,11 +2,11 @@
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ @author: Davidson Gomes                                                      │
 │ @file: /app/globals.css                                                      │
-│ Developed by: Davidson Gomes                                                 │
+│ Desenvolvido para: Gabi AI                                                   │
 │ Creation date: May 13, 2025                                                  │
 │ Contact: contato@evolution-api.com                                           │
 ├──────────────────────────────────────────────────────────────────────────────┤
-│ @copyright © Evolution API 2025. All rights reserved.                        │
+│ @copyright © Gabi AI 2025. All rights reserved.                              │
 │ Licensed under the Apache License, Version 2.0                               │
 │                                                                              │
 │ You may not use this file except in compliance with the License.             │
@@ -21,9 +21,8 @@
 │ limitations under the License.                                               │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │ @important                                                                   │
-│ For any future changes to the code in this file, it is recommended to        │
-│ include, together with the modification, the information of the developer    │
-│ who changed it and the date of modification.                                 │
+│ Para futuras alterações neste arquivo, inclua o nome do desenvolvedor        │
+│ responsável e a data da modificação.                                         │
 └──────────────────────────────────────────────────────────────────────────────┘
 */
 @tailwind base;

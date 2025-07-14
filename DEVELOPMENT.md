@@ -1,4 +1,4 @@
-# Guia de Desenvolvimento - Nova Aplicação
+# Guia de Desenvolvimento - Gabi AI
 
 ## 🚀 Início Rápido
 
@@ -14,7 +14,7 @@
 1. **Clone o repositório**
    ```bash
    git clone <seu-repositorio>
-   cd nova-aplicacao
+   cd gabi-ai
    ```
 
 2. **Execute o script de setup**

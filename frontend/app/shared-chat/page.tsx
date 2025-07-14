@@ -548,7 +548,7 @@ Args: ${
           <div className="p-4 border-b border-neutral-700 bg-neutral-900 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Image
-                src="https://evolution-api.com/files/evo/logo-evo-ai.svg"
+                src="/logo.svg"
                 alt="Evolution API"
                 width={60}
                 height={30}

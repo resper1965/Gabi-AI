@@ -1,4 +1,4 @@
-<h1 align="center">Nova Aplicação - Plataforma Personalizada</h1>
+<h1 align="center">Gabi AI - Plataforma de Agentes de IA</h1>
 
 <div align="center">
 
@@ -6,9 +6,9 @@
 
 </div>
 
-## Nova Aplicação - Plataforma Personalizada
+## Gabi AI - Plataforma de Agentes de IA
 
-Esta é uma nova aplicação baseada no Evo AI, uma plataforma open-source para criar e gerenciar agentes de IA, permitindo integração com diferentes modelos e serviços de IA.
+Esta é uma aplicação baseada no Evo AI, agora personalizada como Gabi AI, uma plataforma open-source para criar e gerenciar agentes de IA, permitindo integração com diferentes modelos e serviços de IA.
 
 ## 🚀 Visão Geral
 

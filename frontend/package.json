@@ -1,17 +1,17 @@
 {
-  "name": "nova-aplicacao-frontend",
+  "name": "gabi-ai-frontend",
   "version": "0.1.0",
   "license": "Apache-2.0",
   "private": false,
-  "description": "Nova aplicação baseada no Evo AI - plataforma open-source para criar e gerenciar agentes de IA",
+  "description": "Gabi AI - Plataforma de Agentes de IA Personalizada",
   "author": "Seu Nome <seu-email@exemplo.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seu-usuario/nova-aplicacao-frontend.git"
+    "url": "https://github.com/seu-usuario/gabi-ai-frontend.git"
   },
-  "homepage": "https://github.com/seu-usuario/nova-aplicacao-frontend",
+  "homepage": "https://github.com/seu-usuario/gabi-ai-frontend",
   "bugs": {
-    "url": "https://github.com/seu-usuario/nova-aplicacao-frontend/issues"
+    "url": "https://github.com/seu-usuario/gabi-ai-frontend/issues"
   },
   "keywords": [
     "ai",
@@ -19,7 +19,7 @@
     "react",
     "frontend",
     "open-source",
-    "nova-aplicacao"
+    "gabi-ai"
   ],
   "engines": {
     "node": ">=18"

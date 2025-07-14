@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Script de Setup para Nova Aplicação
+# Script de Setup para Gabi AI
 # Baseado no Evo AI
 
 set -e
 
-echo "🚀 Configurando Nova Aplicação..."
+echo "🚀 Configurando Gabi AI..."
 echo "=================================="
 
 # Cores para output
@@ -91,7 +91,7 @@ pip install -e ".[dev]"
 print_status "Configurando arquivo de ambiente..."
 if [ ! -f ".env" ]; then
     cp .env.example .env
-    print_warning "Arquivo .env criado. Configure as variáveis de ambiente!"
+    print_warning "Arquivo .env criado. Configure as variáveis de ambiente para o Gabi AI!"
 else
     print_warning "Arquivo .env já existe"
 fi
@@ -107,7 +107,7 @@ pnpm install
 # Configurar arquivo de ambiente do frontend
 if [ ! -f ".env" ]; then
     cp .env.example .env
-    print_warning "Arquivo .env do frontend criado. Configure as variáveis!"
+    print_warning "Arquivo .env do frontend criado. Configure as variáveis para o Gabi AI!"
 else
     print_warning "Arquivo .env do frontend já existe"
 fi
@@ -139,7 +139,7 @@ else
 fi
 
 echo ""
-echo "🎉 Setup concluído!"
+echo "🎉 Setup do Gabi AI concluído!"
 echo "=================="
 echo ""
 echo "Próximos passos:"

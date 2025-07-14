@@ -1,8 +1,8 @@
-# 🚀 Nova Aplicação - Instruções de Uso
+# 🚀 Gabi AI - Instruções de Uso
 
 ## ✅ Clonagem Concluída!
 
-Sua nova aplicação foi criada com sucesso em `/home/resper/gabi-ai/nova-aplicacao/` baseada no Evo AI.
+Sua aplicação foi criada com sucesso em `/home/resper/gabi-ai/gabi-ai/` baseada no Evo AI e personalizada como Gabi AI.
 
 ## 📋 O que foi configurado
 
@@ -29,7 +29,7 @@ Sua nova aplicação foi criada com sucesso em `/home/resper/gabi-ai/nova-aplica
 ### 1. Configurar Ambiente de Desenvolvimento
 
 ```bash
-cd /home/resper/gabi-ai/nova-aplicacao
+cd /home/resper/gabi-ai/gabi-ai
 
 # Executar setup automático
 ./setup.sh
