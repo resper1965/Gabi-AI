@@ -1,0 +1,33 @@
+# COMANDOS PARA COPIAR E COLAR NO TERMINAL WSL
+
+# 1. Navegar para o diretório
+cd /home/resper/gabi-ai/gabi-agent
+
+# 2. Verificar se está no lugar certo
+pwd
+ls -la
+
+# 3. Tornar o script executável
+chmod +x EXECUTAR_BUILD.sh
+
+# 4. Executar o build completo
+./EXECUTAR_BUILD.sh
+
+# COMANDOS ALTERNATIVOS (se o script não funcionar):
+
+# Build Backend
+docker build -t resper1965/gabi-agent-backend:latest .
+
+# Build Frontend
+cd frontend
+docker build -t resper1965/gabi-agent-frontend:latest .
+cd ..
+
+# Push para Docker Hub
+docker push resper1965/gabi-agent-backend:latest
+docker push resper1965/gabi-agent-frontend:latest
+
+# Commit e push
+git add .
+git commit -m "feat: atualizar imagens Docker com processo otimizado"
+git push origin main 
