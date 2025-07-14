@@ -28,7 +28,7 @@ A plataforma permite:
 
 ## 🤖 Agent Types
 
-Evo AI supports different types of agents that can be flexibly combined:
+Gabi AI supports different types of agents that can be flexibly combined:
 
 ### 1. LLM Agent (Language Model)
 
@@ -87,7 +87,7 @@ Executes a specific task using a target agent with structured task instructions.
 
 ## 📊 Langfuse Integration (Tracing & Observability)
 
-Evo AI platform natively supports integration with [Langfuse](https://langfuse.com/) for detailed tracing of agent executions, prompts, model responses, and tool calls, using the OpenTelemetry (OTel) standard.
+Gabi AI platform natively supports integration with [Langfuse](https://langfuse.com/) for detailed tracing of agent executions, prompts, model responses, and tool calls, using the OpenTelemetry (OTel) standard.
 
 ### How to configure
 
@@ -104,7 +104,7 @@ Evo AI platform natively supports integration with [Langfuse](https://langfuse.c
 
 ## 🤖 Agent 2 Agent (A2A) Protocol Support
 
-Evo AI implements the Google's Agent 2 Agent (A2A) protocol, enabling seamless communication and interoperability between AI agents.
+Gabi AI implements the Google's Agent 2 Agent (A2A) protocol, enabling seamless communication and interoperability between AI agents.
 
 For more information about the A2A protocol, visit [Google's A2A Protocol Documentation](https://google.github.io/A2A/).
 
@@ -126,8 +126,8 @@ For more information about the A2A protocol, visit [Google's A2A Protocol Docume
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/EvolutionAPI/evo-ai.git
-cd evo-ai
+git clone https://github.com/resper1965/Gabi-AI.git
+cd gabi-ai
 ```
 
 ### 2. Backend Setup
@@ -255,10 +255,10 @@ make docker-seed
 cd frontend
 
 # Build frontend image
-docker build -t evo-ai-frontend .
+docker build -t gabi-ai-frontend .
 
 # Run frontend container
-docker run -p 3000:3000 -e NEXT_PUBLIC_API_URL=http://localhost:8000 evo-ai-frontend
+docker run -p 3000:3000 -e NEXT_PUBLIC_API_URL=http://localhost:8000 gabi-ai-frontend
 ```
 
 Or using the provided docker-compose:
@@ -329,7 +329,7 @@ Key settings include:
 
 ```bash
 # Database settings
-POSTGRES_CONNECTION_STRING="postgresql://postgres:root@localhost:5432/evo_ai"
+POSTGRES_CONNECTION_STRING="postgresql://postgres:root@localhost:5432/gabi_ai"
 
 # Redis settings
 REDIS_HOST="localhost"
@@ -368,9 +368,9 @@ The API uses JWT (JSON Web Token) authentication with:
 
 ## 🚀 Star Us on GitHub
 
-If you find EvoAI useful, please consider giving us a star! Your support helps us grow our community and continue improving the product.
+If you find Gabi AI useful, please consider giving us a star! Your support helps us grow our community and continue improving the product.
 
-[![Star History Chart](https://api.star-history.com/svg?repos=EvolutionAPI/evo-ai&type=Date)](https://www.star-history.com/#EvolutionAPI/evo-ai&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=resper1965/Gabi-AI&type=Date)](https://www.star-history.com/#resper1965/Gabi-AI&Date)
 
 ## 🤝 Contributing
 
