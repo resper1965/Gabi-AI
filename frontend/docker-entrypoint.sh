@@ -21,5 +21,6 @@ else
 fi
 
 # Start the application
-echo "Starting Next.js application on port ${PORT:-3000}..."
-exec node server.js 
+PORT=${PORT:-3000}
+echo "Starting Next.js application on port $PORT..."
+exec npx next start -p $PORT 
