@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Evo AI{% endblock %}</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #f7f7f7;
+        color: #222;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 480px;
+        margin: 32px auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        padding: 0;
+        overflow: hidden;
+      }
+      .header {
+        background: #f7f7f7;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 32px 0 16px 0;
+        text-align: center;
+      }
+      .header h1 {
+        color: #155a2c;
+        font-size: 2rem;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+      .content {
+        padding: 32px 24px 24px 24px;
+      }
+      .button {
+        background: linear-gradient(90deg, #155a2c 0%, #1f7a3dff 100%);
+        color: #fff !important;
+        padding: 14px 0;
+        border-radius: 6px;
+        text-decoration: none;
+        display: block;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.1rem;
+        margin: 32px 0 0 0;
+        transition: filter 0.2s;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+      }
+      .button:hover {
+        filter: brightness(1.08);
+      }
+      .footer {
+        font-size: 12px;
+        text-align: center;
+        color: #888;
+        background: #f7f7f7;
+        border-top: 1px solid #e5e5e5;
+        padding: 20px 0 10px 0;
+      }
+      .link {
+        color: #155a2c;
+        text-decoration: underline;
+        word-break: break-all;
+      }
+      .warning {
+        color: #b91c1c;
+        background: #fee2e2;
+        border-radius: 4px;
+        padding: 12px;
+        margin-top: 20px;
+      }
+      @media (max-width: 600px) {
+        .container {
+          max-width: 98vw;
+          margin: 8px;
+        }
+        .content {
+          padding: 18px 8px 16px 8px;
+        }
+      }
+    </style>
+    {% block additional_styles %}{% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>{% block header %}Evo AI{% endblock %}</h1>
+      </div>
+      <div class="content">{% block content %}{% endblock %}</div>
+      <div class="footer">
+        <p>
+          {% block footer_message %}This is an automated email, please do not
+          reply.{% endblock %}
+        </p>
+        <p>&copy; {{ current_year }} Evo AI. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>

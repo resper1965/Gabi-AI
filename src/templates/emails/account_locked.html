@@ -1,0 +1,32 @@
+{% extends "base_email.html" %}
+
+{% block title %}Account Locked - Evo AI{% endblock %}
+
+{% block header %}Evo AI - Security{% endblock %}
+
+{% block content %}
+<h2>Security Alert: Your Account Has Been Locked</h2>
+<p>Hello {{ user_name }},</p>
+<p>We detected multiple failed login attempts to your account on the Evo AI platform. To protect your information, we have temporarily locked access to your account.</p>
+
+<h3>What happened?</h3>
+<p>Our security system detected {{ failed_attempts }} failed login attempts with incorrect passwords in the last {{ time_period }}. This may indicate an unauthorized access attempt to your account.</p>
+
+<h3>What to do now?</h3>
+<p>To unlock your account, you need to reset your password:</p>
+
+<p style="text-align: center; margin-top: 30px;">
+    <a href="{{ reset_link }}" class="button">Reset My Password</a>
+</p>
+
+<p>The link above is valid for <strong>24 hours</strong>. If you don't reset your password within this period, you will need to request a new reset link.</p>
+
+<p><strong>Important:</strong> If you haven't tried to log in recently, we recommend that you reset your password immediately and consider enabling two-factor authentication for greater security.</p>
+
+<p>If you need help, please contact our support team.</p>
+
+<p>Best regards,<br>
+Evo AI Security Team</p>
+{% endblock %}
+
+{% block footer_message %}If you don't recognize this activity, please contact support immediately.{% endblock %}

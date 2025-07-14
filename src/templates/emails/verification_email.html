@@ -1,0 +1,31 @@
+{% extends "base_email.html" %}
+
+{% block title %}Email Verification - Evo AI{% endblock %}
+
+{% block header %}Evo AI{% endblock %}
+
+{% block content %}
+<h2>Email Verification</h2>
+<p>Hello {{ user_name }},</p>
+<p>Thank you for registering on the Evo AI platform. To complete your registration and ensure the security of your account, we need to verify your email address.</p>
+
+<p>Please click the button below to confirm your email:</p>
+
+<p style="text-align: center; margin-top: 30px;">
+    <a href="{{ verification_link }}" class="button">Verify My Email</a>
+</p>
+
+<p>This verification link is valid for <strong>48 hours</strong>. If it expires, you can request a new verification email through our platform.</p>
+
+<p>If you can't click the button above, copy and paste the following URL into your browser:</p>
+<p style="word-break: break-all; font-size: 12px;">{{ verification_link }}</p>
+
+<p>If you didn't create an account on Evo AI, please ignore this email or contact our support team.</p>
+
+<p>We're excited to have you as part of our community!</p>
+
+<p>Best regards,<br>
+Evo AI Team</p>
+{% endblock %}
+
+{% block footer_message %}This is an automated email. Please do not reply to this message.{% endblock %} 
