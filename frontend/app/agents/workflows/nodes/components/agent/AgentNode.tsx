@@ -68,7 +68,7 @@ export function AgentNode(props: NodeProps) {
   const getAgentTypeIcon = (type: string) => {
     switch (type) {
       case "llm":
-        return <Code className="h-4 w-4 text-green-400" />;
+        return <Code className="h-4 w-4 text-brand-400" />;
       case "a2a":
         return <ExternalLink className="h-4 w-4 text-indigo-400" />;
       case "sequential":
@@ -87,7 +87,7 @@ export function AgentNode(props: NodeProps) {
   };
 
   const getModelBadgeColor = (model: string) => {
-    if (model?.includes('gpt-4')) return 'bg-green-900/30 text-green-400 border-green-600/30';
+    if (model?.includes('gpt-4')) return 'bg-brand-900/30 text-brand-400 border-brand-600/30';
     if (model?.includes('gpt-3')) return 'bg-yellow-900/30 text-yellow-400 border-yellow-600/30';
     if (model?.includes('claude')) return 'bg-orange-900/30 text-orange-400 border-orange-600/30';
     if (model?.includes('gemini')) return 'bg-blue-900/30 text-blue-400 border-blue-600/30';

@@ -286,7 +286,7 @@ export function AgentTestChatModal({ open, onOpenChange, agent, canvasRef }: Age
     const getAgentTypeIcon = (type: string) => {
         switch (type) {
             case "llm":
-                return <Code className="h-4 w-4 text-green-400" />;
+                return <Code className="h-4 w-4 text-brand-400" />;
             case "a2a":
                 return <ExternalLink className="h-4 w-4 text-indigo-400" />;
             case "sequential":

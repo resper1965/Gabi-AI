@@ -94,8 +94,8 @@ function VerifyEmailPage() {
                         </Alert>
                     )}
                     {status === "success" && (
-                        <Alert className="border-green-500">
-                            <CheckCircle2 className="mr-2 h-4 w-4 text-green-500 inline" />
+                                <Alert className="border-brand-500">
+          <CheckCircle2 className="mr-2 h-4 w-4 text-brand-500 inline" />
                             <AlertTitle>Email verified!</AlertTitle>
                             <AlertDescription>
                                 Your email has been successfully confirmed.<br />

@@ -87,10 +87,10 @@ const getAgentTypeColor = (type: string): string => {
     llm: "bg-blue-800 text-white",
     a2a: "bg-purple-800 text-white",
     sequential: "bg-orange-800 text-white",
-    parallel: "bg-green-800 text-white",
+            parallel: "bg-brand-800 text-white",
     loop: "bg-pink-800 text-white",
     workflow: "bg-yellow-800 text-black",
-    task: "bg-green-800 text-white",
+            task: "bg-brand-800 text-white",
   };
   return colorMap[type] || "bg-neutral-800 text-white";
 };

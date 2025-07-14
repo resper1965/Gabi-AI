@@ -168,7 +168,7 @@ function WorkflowsContent() {
           {agent && (
             <Button
               variant="outline"
-              className="bg-green-800 border-green-700 text-green-200 hover:bg-green-700"
+              className="bg-brand-800 border-brand-700 text-brand-200 hover:bg-brand-700"
               onClick={() => setIsTestModalOpen(true)}
             >
               <PlayIcon className="h-4 w-4 mr-2" />

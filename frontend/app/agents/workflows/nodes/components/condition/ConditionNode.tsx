@@ -119,7 +119,7 @@ export function ConditionNode(props: NodeProps) {
                 {!["is_defined", "is_not_defined"].includes(
                   condition.data.operator,
                 ) && (
-                  <span className="font-semibold text-green-400">
+                  <span className="font-semibold text-brand-400">
                     &quot;{condition.data.value}&quot;
                   </span>
                 )}

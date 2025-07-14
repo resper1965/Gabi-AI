@@ -109,10 +109,10 @@ export function AgentCard({
       llm: {
         label: "LLM Agent",
         icon: Code,
-        color: "#00cc7d",
-        bgColor: "bg-green-500/10",
+        color: "#00ade0",
+        bgColor: "bg-brand-500/10",
         badgeClass:
-          "bg-green-900/30 text-green-400 border-green-600/30 hover:bg-green-900/40",
+          "bg-brand-900/30 text-brand-400 border-brand-600/30 hover:bg-brand-900/40",
       },
       a2a: {
         label: "A2A Agent",
@@ -305,7 +305,7 @@ export function AgentCard({
             variant="ghost"
             size="sm"
             className={cn("p-0 h-auto", {
-              "text-green-400 hover:text-green-300": agent.type === "llm",
+              "text-brand-400 hover:text-brand-300": agent.type === "llm",
               "text-indigo-400 hover:text-indigo-300": agent.type === "a2a",
               "text-yellow-400 hover:text-yellow-300":
                 agent.type === "sequential",
@@ -484,7 +484,7 @@ export function AgentCard({
             className={cn(
               "flex-1 flex items-center justify-center rounded-none h-12 hover:bg-zinc-800",
               {
-                "text-green-400 hover:text-green-300": agent.type === "llm",
+                "text-brand-400 hover:text-brand-300": agent.type === "llm",
                 "text-indigo-400 hover:text-indigo-300": agent.type === "a2a",
                 "text-yellow-400 hover:text-yellow-300":
                   agent.type === "sequential",

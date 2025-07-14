@@ -53,6 +53,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Cores personalizadas para substituir o verde
+        brand: {
+          50: "#e6f7ff",
+          100: "#b3e8ff",
+          200: "#80d9ff",
+          300: "#4dcaff",
+          400: "#1abbff",
+          500: "#00ade0",
+          600: "#0099cc",
+          700: "#0085b3",
+          800: "#007199",
+          900: "#005d80",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -116,8 +116,8 @@ function ResetPasswordPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {status === "success" ? (
-              <Alert className="border-green-500">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-green-500 inline" />
+                      <Alert className="border-brand-500">
+          <CheckCircle2 className="mr-2 h-4 w-4 text-brand-500 inline" />
                 <AlertTitle>Password reset!</AlertTitle>
                 <AlertDescription>
                   Your password has been updated.

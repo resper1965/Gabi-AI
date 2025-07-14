@@ -285,7 +285,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md bg-[#1a1a1a] border-[#333]">
         {showRegisterSuccess ? (
           <div className="flex flex-col items-center justify-center p-8">
-            <CheckCircle2 className="w-12 h-12 text-green-500 mb-4" />
+            <CheckCircle2 className="w-12 h-12 text-brand-500 mb-4" />
             <h2 className="text-xl font-semibold text-white mb-2">Registration successful!</h2>
             <p className="text-neutral-300 mb-2 text-center">
               Please check your email to confirm your account.<br />
@@ -294,7 +294,7 @@ export default function LoginPage() {
           </div>
         ) : showForgotSuccess ? (
           <div className="flex flex-col items-center justify-center p-8">
-            <CheckCircle2 className="w-12 h-12 text-green-500 mb-4" />
+            <CheckCircle2 className="w-12 h-12 text-brand-500 mb-4" />
             <h2 className="text-xl font-semibold text-white mb-2">Email sent!</h2>
             <p className="text-neutral-300 mb-2 text-center">
               Check your inbox to reset your password.<br />
@@ -306,19 +306,19 @@ export default function LoginPage() {
           <TabsList className="grid w-full grid-cols-3 bg-[#222]">
             <TabsTrigger
               value="login"
-              className="data-[state=active]:bg-[#333] data-[state=active]:text-emerald-400"
+              className="data-[state=active]:bg-[#333] data-[state=active]:text-brand-400"
             >
               Login
             </TabsTrigger>
             <TabsTrigger
               value="register"
-              className="data-[state=active]:bg-[#333] data-[state=active]:text-emerald-400"
+              className="data-[state=active]:bg-[#333] data-[state=active]:text-brand-400"
             >
               Register
             </TabsTrigger>
             <TabsTrigger
               value="forgot"
-              className="data-[state=active]:bg-[#333] data-[state=active]:text-emerald-400"
+              className="data-[state=active]:bg-[#333] data-[state=active]:text-brand-400"
             >
               Forgot
             </TabsTrigger>
@@ -380,7 +380,7 @@ export default function LoginPage() {
                           size="sm"
                           onClick={handleResendVerification}
                           disabled={isResendingVerification}
-                          className="text-emerald-400 border-emerald-400 hover:bg-emerald-400/10"
+                          className="text-brand-400 border-brand-400 hover:bg-brand-400/10"
                         >
                           {isResendingVerification ? "Sending..." : "Resend verification email"}
                         </Button>
@@ -394,7 +394,7 @@ export default function LoginPage() {
               <CardFooter>
                 <Button
                   type="submit"
-                  className="w-full bg-emerald-400 text-black hover:bg-[#00cc7d]"
+                  className="w-full bg-brand-500 text-white hover:bg-brand-600"
                   disabled={isLoading}
                 >
                   {isLoading ? "Entering..." : "Enter"}

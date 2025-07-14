@@ -61,8 +61,8 @@ export function BaseNode({
       selectedGlow: "shadow-[0_0_25px_rgba(249,115,22,0.3)]"
     },
     green: {
-      border: "border-green-700/70 hover:border-green-500",
-      gradient: "bg-gradient-to-br from-green-950/40 to-neutral-900/90",
+      border: "border-brand-700/70 hover:border-brand-500",
+      gradient: "bg-gradient-to-br from-brand-950/40 to-neutral-900/90",
       glow: "shadow-[0_0_15px_rgba(34,197,94,0.15)]", 
       selectedGlow: "shadow-[0_0_25px_rgba(34,197,94,0.3)]"
     },
@@ -115,7 +115,7 @@ export function BaseNode({
   
   // Selected styles
   const selectedStyle = {
-    border: "border-green-500/90",
+            border: "border-brand-500/90",
     glow: colorStyle.selectedGlow
   };
   
