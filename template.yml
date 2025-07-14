@@ -137,7 +137,7 @@ variables:
 
   - name: ADMIN_EMAIL
     description: "Email do administrador"
-    default: "admin@example.com"
+    default: "resper@ness.com.br"
     required: true
 
   - name: ADMIN_PASSWORD
