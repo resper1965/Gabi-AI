@@ -366,11 +366,7 @@ The API uses JWT (JSON Web Token) authentication with:
 - Password recovery flow
 - Account lockout after multiple failed login attempts
 
-## 🚀 Star Us on GitHub
 
-If you find Gabi AI useful, please consider giving us a star! Your support helps us grow our community and continue improving the product.
-
-[![Star History Chart](https://api.star-history.com/svg?repos=resper1965/Gabi-AI&type=Date)](https://www.star-history.com/#resper1965/Gabi-AI&Date)
 
 ## 🤝 Contributing
 
