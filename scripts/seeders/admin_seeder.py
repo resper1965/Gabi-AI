@@ -29,8 +29,8 @@
 
 """
 Script to create an initial admin user:
-- Email: admin@evoai.com
-- Password: defined in the ADMIN_INITIAL_PASSWORD environment variable
+- Email: resper@ness.com.br (from ADMIN_EMAIL env var)
+- Password: admin123 (from ADMIN_INITIAL_PASSWORD env var)
 - is_admin: True
 - is_active: True
 - email_verified: True
@@ -42,8 +42,12 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
-from src.models.models import User
-from src.utils.security import get_password_hash
+
+# Add the src directory to the path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'src'))
+
+from models.user import User
+from core.security import get_password_hash
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -58,19 +62,21 @@ def create_admin_user():
         load_dotenv()
 
         # Get database settings
-        db_url = os.getenv("POSTGRES_CONNECTION_STRING")
+        db_url = os.getenv("POSTGRES_CONNECTION_STRING") or os.getenv("DATABASE_URL")
         if not db_url:
-            logger.error("Environment variable POSTGRES_CONNECTION_STRING not defined")
+            logger.error("Environment variable POSTGRES_CONNECTION_STRING or DATABASE_URL not defined")
             return False
 
         # Get admin password
-        admin_password = os.getenv("ADMIN_INITIAL_PASSWORD")
+        admin_password = os.getenv("ADMIN_INITIAL_PASSWORD") or os.getenv("ADMIN_PASSWORD")
         if not admin_password:
-            logger.error("Environment variable ADMIN_INITIAL_PASSWORD not defined")
+            logger.error("Environment variable ADMIN_INITIAL_PASSWORD or ADMIN_PASSWORD not defined")
             return False
 
         # Admin email configuration
-        admin_email = os.getenv("ADMIN_EMAIL", "admin@evoai.com")
+        admin_email = os.getenv("ADMIN_EMAIL", "resper@ness.com.br")
+
+        logger.info(f"Creating admin user with email: {admin_email}")
 
         # Connect to the database
         engine = create_engine(db_url)
@@ -86,7 +92,7 @@ def create_admin_user():
         # Create admin
         admin_user = User(
             email=admin_email,
-            password_hash=get_password_hash(admin_password),
+            hashed_password=get_password_hash(admin_password),
             is_admin=True,
             is_active=True,
             email_verified=True,
@@ -103,7 +109,8 @@ def create_admin_user():
         logger.error(f"Error creating admin: {str(e)}")
         return False
     finally:
-        session.close()
+        if 'session' in locals():
+            session.close()
 
 
 if __name__ == "__main__":

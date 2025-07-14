@@ -37,8 +37,13 @@ import { UserX } from "lucide-react";
 export default function ImpersonationBar() {
   const [isImpersonating, setIsImpersonating] = useState(false);
   const [clientName, setClientName] = useState("");
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const checkImpersonation = () => {
     if (typeof window === 'undefined') return;
@@ -67,6 +72,8 @@ export default function ImpersonationBar() {
   };
 
   useEffect(() => {
+    if (!mounted) return;
+    
     checkImpersonation();
     
     const intervalId = setInterval(checkImpersonation, 2000);
@@ -77,7 +84,7 @@ export default function ImpersonationBar() {
       clearInterval(intervalId);
       window.removeEventListener('storage', checkImpersonation);
     };
-  }, []);
+  }, [mounted]);
 
   const handleExitImpersonation = () => {
     const adminUserJson = localStorage.getItem('adminUser');

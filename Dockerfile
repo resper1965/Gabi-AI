@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
     curl \
+    postgresql-client \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -26,7 +27,24 @@ RUN pip install --no-cache-dir -e .
 COPY . .
 
 # Create logs directory
-RUN mkdir -p /app/logs
+RUN mkdir -p /app/logs /app/static
+
+# Make scripts executable
+RUN chmod +x scripts/init-database.py
+
+# Create startup script
+RUN echo '#!/bin/bash\n\
+echo "Starting Gabi AI Backend..."\n\
+\n\
+echo "Initializing database..."\n\
+python scripts/init-database.py\n\
+\n\
+echo "Running seeders..."\n\
+python -m scripts.run_seeders\n\
+\n\
+echo "Starting application..."\n\
+exec uvicorn src.main:app --host $HOST --port $PORT --workers 1\n\
+' > /app/start.sh && chmod +x /app/start.sh
 
 # Expose port
 EXPOSE 8000
@@ -36,4 +54,4 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 
 # Start command
-CMD alembic upgrade head && python -m scripts.run_seeders && uvicorn src.main:app --host $HOST --port $PORT --workers 1 
+CMD ["/app/start.sh"] 

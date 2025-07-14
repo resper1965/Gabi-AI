@@ -182,8 +182,8 @@ export default function Sidebar() {
             {isCollapsed ? (
               <div className="h-10 w-10 flex items-center justify-center bg-neutral-800/50 rounded-full p-1">
                 <Image
-                  src="https://evolution-api.com/files/evo/favicon.svg"
-                  alt="Nova Aplicação"
+                  src="/logo.svg"
+                  alt="Gabi AI"
                   width={40}
                   height={40}
                 />
@@ -191,7 +191,7 @@ export default function Sidebar() {
             ) : (
               <Image
                 src="/logo.svg"
-                                  alt="Nova Aplicação"
+                alt="Gabi AI"
                 width={90}
                 height={40}
                 className="mt-2"

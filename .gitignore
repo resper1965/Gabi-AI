@@ -130,3 +130,6 @@ celerybeat-schedule
 Thumbs.db
 
 uv.lock
+
+# EasyPanel config com dados sensíveis
+ easypanel-install.json.md
