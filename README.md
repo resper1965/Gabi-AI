@@ -1,4 +1,4 @@
-# 🚀 Gabi AI - Plataforma de Agentes de IA
+# 🚀 Gabi Agent - Plataforma de Agentes de IA
 
 <div align="center">
 
@@ -9,7 +9,7 @@
 
 ## 📖 Sobre
 
-**Gabi AI** é uma plataforma open-source para criar e gerenciar agentes de IA, permitindo integração com diferentes modelos e serviços de IA. Baseada em tecnologias modernas, oferece uma interface intuitiva para desenvolvimento e deploy de agentes inteligentes.
+**Gabi Agent** é uma plataforma open-source para criar e gerenciar agentes de IA, permitindo integração com diferentes modelos e serviços de IA. Baseada em tecnologias modernas, oferece uma interface intuitiva para desenvolvimento e deploy de agentes inteligentes.
 
 ## ✨ Características Principais
 
@@ -28,7 +28,7 @@
 
 1. **Acesse o EasyPanel** na sua VPS
 2. **Crie um novo projeto** e selecione "Template"
-3. **Escolha "Gabi AI"** na lista de templates
+3. **Escolha "Gabi Agent"** na lista de templates
 4. **Configure as variáveis** de ambiente
 5. **Deploy automático** - pronto para usar!
 
@@ -44,8 +44,8 @@
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/resper1965/Gabi-AI.git
-cd gabi-ai
+git clone https://github.com/resper1965/Gabi-Agent.git
+cd gabi-agent
 
 # 2. Configure o ambiente
 cp env.easypanel.example .env
@@ -82,6 +82,7 @@ docker-compose up -d
 ```env
 # Database
 POSTGRES_PASSWORD=sua-senha-segura
+POSTGRES_DB=gabi_agent
 
 # Application
 SECRET_KEY=sua-chave-secreta

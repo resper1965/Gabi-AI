@@ -3,9 +3,9 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gabi-ai"
+name = "gabi-agent"
 version = "1.0.0"
-description = "Gabi AI - Plataforma de Agentes de IA Personalizada"
+description = "Gabi Agent - Plataforma de Agentes de IA Personalizada"
 readme = "README.md"
 authors = [
     {name = "Seu Nome", email = "seu-email@exemplo.com"}

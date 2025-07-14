@@ -1,11 +1,11 @@
-name: Gabi AI
+name: Gabi Agent
 description: Plataforma de Agentes de IA Personalizada - Crie e gerencie agentes de IA com integração a diferentes modelos e serviços
 category: AI
 author: resper1965
-repository: https://github.com/resper1965/Gabi-AI
-website: https://github.com/resper1965/Gabi-AI
-logo: https://raw.githubusercontent.com/resper1965/Gabi-AI/main/frontend/public/logo.svg
-readme: https://raw.githubusercontent.com/resper1965/Gabi-AI/main/README.md
+repository: https://github.com/resper1965/Gabi-Agent
+website: https://github.com/resper1965/Gabi-Agent
+logo: https://raw.githubusercontent.com/resper1965/Gabi-Agent/main/frontend/public/logo.svg
+readme: https://raw.githubusercontent.com/resper1965/Gabi-Agent/main/README.md
 
 services:
   - name: postgres
@@ -13,7 +13,7 @@ services:
     version: "15"
     port: 5432
     environment:
-      POSTGRES_DB: gabi_ai
+      POSTGRES_DB: gabi_agent
       POSTGRES_USER: gabi_user
       POSTGRES_PASSWORD: "{{ .POSTGRES_PASSWORD }}"
     volumes:
@@ -30,14 +30,14 @@ services:
     type: app
     source:
       type: git
-      url: https://github.com/resper1965/Gabi-AI
+      url: https://github.com/resper1965/Gabi-Agent
       branch: main
     build:
       context: .
       dockerfile: Dockerfile
     port: 8000
     environment:
-      DATABASE_URL: "postgresql://gabi_user:{{ .POSTGRES_PASSWORD }}@postgres:5432/gabi_ai"
+      DATABASE_URL: "postgresql://gabi_user:{{ .POSTGRES_PASSWORD }}@postgres:5432/gabi_agent"
       REDIS_URL: "redis://redis:6379/0"
       SECRET_KEY: "{{ .SECRET_KEY }}"
       ALGORITHM: "HS256"
@@ -75,7 +75,7 @@ services:
     type: app
     source:
       type: git
-      url: https://github.com/resper1965/Gabi-AI
+      url: https://github.com/resper1965/Gabi-Agent
       branch: main
     build:
       context: ./frontend
@@ -83,7 +83,7 @@ services:
     port: 3000
     environment:
       NEXT_PUBLIC_API_URL: "{{ .NEXT_PUBLIC_API_URL }}"
-      NEXT_PUBLIC_APP_NAME: "Gabi AI"
+      NEXT_PUBLIC_APP_NAME: "Gabi Agent"
       NODE_ENV: "production"
     depends_on:
       - backend
@@ -92,7 +92,7 @@ services:
     type: app
     source:
       type: git
-      url: https://github.com/resper1965/Gabi-AI
+      url: https://github.com/resper1965/Gabi-Agent
       branch: main
     build:
       context: .

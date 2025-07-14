@@ -1,17 +1,17 @@
 {
-  "name": "gabi-ai-frontend",
+  "name": "gabi-agent-frontend",
   "version": "0.1.0",
   "license": "Apache-2.0",
   "private": false,
-  "description": "Gabi AI - Plataforma de Agentes de IA Personalizada",
+  "description": "Gabi Agent - Plataforma de Agentes de IA Personalizada",
   "author": "Seu Nome <seu-email@exemplo.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seu-usuario/gabi-ai-frontend.git"
+    "url": "https://github.com/seu-usuario/gabi-agent-frontend.git"
   },
-  "homepage": "https://github.com/seu-usuario/gabi-ai-frontend",
+  "homepage": "https://github.com/seu-usuario/gabi-agent-frontend",
   "bugs": {
-    "url": "https://github.com/seu-usuario/gabi-ai-frontend/issues"
+    "url": "https://github.com/seu-usuario/gabi-agent-frontend/issues"
   },
   "keywords": [
     "ai",
@@ -19,7 +19,7 @@
     "react",
     "frontend",
     "open-source",
-    "gabi-ai"
+    "gabi-agent"
   ],
   "engines": {
     "node": ">=18"
