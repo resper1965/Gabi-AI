@@ -73,6 +73,10 @@ class User(Base):
     password_reset_expiry = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+    def verify_password(self, password: str) -> bool:
+        """Verifies if the provided password matches the stored hash"""
+        from src.utils.security import verify_password
+        return verify_password(password, self.password_hash)
 
     client = relationship(
         "Client", backref=backref("user", uselist=False, cascade="all, delete-orphan")

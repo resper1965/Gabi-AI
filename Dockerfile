@@ -4,34 +4,36 @@ WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/app
+    PYTHONPATH=/app \
+    PORT=8000 \
+    HOST=0.0.0.0
 
+# Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
     curl \
-    gnupg \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# Copy requirements first for better caching
+COPY pyproject.toml ./
 
-RUN curl -fsSL https://get.docker.com | bash
-
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-
-COPY . .
-
+# Install Python dependencies
 RUN pip install --no-cache-dir -e .
 
-ENV PORT=8000 \
-    HOST=0.0.0.0 \
-    DEBUG=false
+# Copy application code
+COPY . .
+
+# Create logs directory
+RUN mkdir -p /app/logs
 
 # Expose port
 EXPOSE 8000
 
-CMD alembic upgrade head && python -m scripts.run_seeders && uvicorn src.main:app --host $HOST --port $PORT 
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Start command
+CMD alembic upgrade head && python -m scripts.run_seeders && uvicorn src.main:app --host $HOST --port $PORT --workers 1 

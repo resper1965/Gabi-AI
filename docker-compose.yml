@@ -8,7 +8,7 @@ services:
     environment:
       POSTGRES_DB: gabi_ai_db
       POSTGRES_USER: gabi_user
-      POSTGRES_PASSWORD: gabi_password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -37,11 +37,15 @@ services:
       dockerfile: Dockerfile
     container_name: gabi_ai_backend
     environment:
-      - DATABASE_URL=postgresql://gabi_user:gabi_password@postgres:5432/gabi_ai_db
-      - REDIS_URL=redis://redis:6379/0
-      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-your-super-secret-jwt-key-change-this-in-production}
-      - APP_ENVIRONMENT=production
-      - APP_DEBUG=false
+      - DATABASE_URL=${DATABASE_URL}
+      - POSTGRES_CONNECTION_STRING=${POSTGRES_CONNECTION_STRING}
+      - REDIS_URL=${REDIS_URL}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - ADMIN_INITIAL_PASSWORD=${ADMIN_INITIAL_PASSWORD}
+      - APP_ENVIRONMENT=${APP_ENVIRONMENT}
+      - APP_DEBUG=${APP_DEBUG}
+      - LOG_LEVEL=${LOG_LEVEL}
     ports:
       - "8000:8000"
     depends_on:

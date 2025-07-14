@@ -50,6 +50,7 @@ from scripts.seeders.admin_seeder import create_admin_user
 from scripts.seeders.client_seeder import create_demo_client_and_user
 from scripts.seeders.mcp_server_seeder import create_mcp_servers
 from scripts.seeders.tool_seeder import create_tools
+from scripts.seeders.agent_seeder import create_demo_agents
 
 
 def setup_environment():
@@ -84,10 +85,11 @@ def run_seeders(seeders):
         "client": create_demo_client_and_user,
         "mcp_servers": create_mcp_servers,
         "tools": create_tools,
+        "agents": create_demo_agents,
     }
 
     # Define the correct execution order (dependencies)
-    seeder_order = ["admin", "client", "mcp_servers", "tools"]
+    seeder_order = ["admin", "client", "mcp_servers", "tools", "agents"]
 
     # If no seeder is specified, run all
     if not seeders:
