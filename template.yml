@@ -1,0 +1,170 @@
+name: Gabi Agent
+description: Plataforma de Agentes de IA Personalizada - Crie e gerencie agentes de IA com integração a diferentes modelos e serviços
+category: AI
+author: resper1965
+repository: https://github.com/resper1965/Gabi-Agent
+website: https://github.com/resper1965/Gabi-Agent
+logo: https://raw.githubusercontent.com/resper1965/Gabi-Agent/main/frontend/public/logo.svg
+readme: https://raw.githubusercontent.com/resper1965/Gabi-Agent/main/README.md
+
+services:
+  - name: postgres
+    type: postgresql
+    version: "15"
+    port: 5432
+    environment:
+      POSTGRES_DB: gabi_agent
+      POSTGRES_USER: gabi_user
+      POSTGRES_PASSWORD: "{{ .POSTGRES_PASSWORD }}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  - name: redis
+    type: redis
+    version: "7"
+    port: 6379
+    volumes:
+      - redis_data:/data
+
+  - name: backend
+    type: app
+    source:
+      type: git
+      url: https://github.com/resper1965/Gabi-Agent
+      branch: main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    port: 8000
+    environment:
+      DATABASE_URL: "postgresql://gabi_user:{{ .POSTGRES_PASSWORD }}@postgres:5432/gabi_agent"
+      REDIS_URL: "redis://redis:6379/0"
+      SECRET_KEY: "{{ .SECRET_KEY }}"
+      ALGORITHM: "HS256"
+      ACCESS_TOKEN_EXPIRE_MINUTES: "30"
+      SENDGRID_API_KEY: "{{ .SENDGRID_API_KEY }}"
+      SENDGRID_FROM_EMAIL: "{{ .ADMIN_EMAIL }}"
+      SMTP_HOST: "smtp.sendgrid.net"
+      SMTP_PORT: "587"
+      SMTP_USERNAME: "apikey"
+      SMTP_PASSWORD: "{{ .SENDGRID_API_KEY }}"
+      SMTP_FROM_EMAIL: "{{ .ADMIN_EMAIL }}"
+      GOOGLE_APPLICATION_CREDENTIALS: "/app/credentials/google-credentials.json"
+      OPENAI_API_KEY: "{{ .OPENAI_API_KEY }}"
+      ANTHROPIC_API_KEY: "{{ .ANTHROPIC_API_KEY }}"
+      ADMIN_EMAIL: "{{ .ADMIN_EMAIL }}"
+      ADMIN_PASSWORD: "{{ .ADMIN_PASSWORD }}"
+      ENVIRONMENT: "production"
+      DEBUG: "false"
+      LOG_LEVEL: "INFO"
+      CORS_ORIGINS: "{{ .CORS_ORIGINS }}"
+    volumes:
+      - ./credentials:/app/credentials:ro
+      - ./logs:/app/logs
+    depends_on:
+      - postgres
+      - redis
+    command: >
+      sh -c "
+        alembic upgrade head &&
+        python -m src.seeders.seed_all &&
+        uvicorn src.main:app --host 0.0.0.0 --port 8000 --workers 4
+      "
+
+  - name: frontend
+    type: app
+    source:
+      type: git
+      url: https://github.com/resper1965/Gabi-Agent
+      branch: main
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    port: 3000
+    environment:
+      NEXT_PUBLIC_API_URL: "{{ .NEXT_PUBLIC_API_URL }}"
+      NEXT_PUBLIC_APP_NAME: "Gabi Agent"
+      NODE_ENV: "production"
+    depends_on:
+      - backend
+
+  - name: nginx
+    type: app
+    source:
+      type: git
+      url: https://github.com/resper1965/Gabi-Agent
+      branch: main
+    build:
+      context: .
+      dockerfile: |
+        FROM nginx:alpine
+        COPY nginx/nginx.conf /etc/nginx/nginx.conf
+        COPY ssl /etc/nginx/ssl
+    port: 80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  - name: postgres_data
+  - name: redis_data
+
+variables:
+  - name: POSTGRES_PASSWORD
+    description: "Senha do banco de dados PostgreSQL"
+    default: "gabi_password_2024_segura"
+    required: true
+
+  - name: SECRET_KEY
+    description: "Chave secreta da aplicação (mude em produção)"
+    default: "sua-chave-secreta-muito-segura-aqui-mude-em-producao"
+    required: true
+
+  - name: SENDGRID_API_KEY
+    description: "Chave API do SendGrid para envio de emails"
+    required: false
+
+  - name: OPENAI_API_KEY
+    description: "Chave API da OpenAI"
+    required: false
+
+  - name: ANTHROPIC_API_KEY
+    description: "Chave API da Anthropic"
+    required: false
+
+  - name: ADMIN_EMAIL
+    description: "Email do administrador"
+    default: "resper@ness.com.br"
+    required: true
+
+  - name: ADMIN_PASSWORD
+    description: "Senha do administrador"
+    default: "admin123"
+    required: true
+
+  - name: CORS_ORIGINS
+    description: "Origins permitidos para CORS (separados por vírgula)"
+    default: "http://localhost:3000,https://your-domain.com"
+    required: false
+
+  - name: NEXT_PUBLIC_API_URL
+    description: "URL da API backend"
+    default: "http://localhost:8000"
+    required: false
+
+ports:
+  - port: 80
+    description: "Nginx (HTTP)"
+  - port: 443
+    description: "Nginx (HTTPS)"
+  - port: 8000
+    description: "Backend API"
+  - port: 3000
+    description: "Frontend"
+  - port: 5432
+    description: "PostgreSQL"
+  - port: 6379
+    description: "Redis" 

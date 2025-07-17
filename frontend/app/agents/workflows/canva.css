@@ -1,0 +1,188 @@
+/*
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ @author: Davidson Gomes                                                      │
+│ @file: /app/agents/workflows/canva.css                                       │
+│ Developed by: Davidson Gomes                                                 │
+│ Creation date: May 13, 2025                                                  │
+│ Contact: contato@evolution-api.com                                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ @copyright © Evolution API 2025. All rights reserved.                        │
+│ Licensed under the Apache License, Version 2.0                               │
+│                                                                              │
+│ You may not use this file except in compliance with the License.             │
+│ You may obtain a copy of the License at                                      │
+│                                                                              │
+│    http://www.apache.org/licenses/LICENSE-2.0                                │
+│                                                                              │
+│ Unless required by applicable law or agreed to in writing, software          │
+│ distributed under the License is distributed on an "AS IS" BASIS,            │
+│ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     │
+│ See the License for the specific language governing permissions and          │
+│ limitations under the License.                                               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ @important                                                                   │
+│ For any future changes to the code in this file, it is recommended to        │
+│ include, together with the modification, the information of the developer    │
+│ who changed it and the date of modification.                                 │
+└──────────────────────────────────────────────────────────────────────────────┘
+*/
+.react-flow.dark {
+  --xy-background-color-default: transparent;
+}
+
+.react-flow__panel {
+  box-shadow: none;
+  padding: 5px;
+}
+
+.react-flow__controls {
+  background-color: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(70, 70, 70, 0.5);
+  padding: 4px;
+}
+
+.react-flow__controls-button {
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  margin: 4px 0;
+  border: none !important;
+  background-color: rgba(40, 40, 40, 0.8) !important;
+  color: #a0a0a0 !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-flow__controls-button:hover {
+  background-color: rgba(60, 60, 60, 0.9) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+}
+
+.react-flow__controls-button[data-action="zoom-in"] {
+  border-bottom: 1px solid rgba(70, 70, 70, 0.5) !important;
+}
+
+.react-flow__controls-button[data-action="zoom-out"] {
+  border-bottom: 1px solid rgba(70, 70, 70, 0.5) !important;
+}
+
+/* Hide scrollbar for all browsers while maintaining scroll functionality */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+/* Animated dashed edge for flow edges */
+.edge-dashed-animated {
+  stroke-dasharray: 6;
+  stroke-dashoffset: 0;
+  animation: dash 0.5s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+/* Edges styling */
+.react-flow__edge-path {
+  stroke: #10b981; /* Emerald color for edges */
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #3b82f6; /* Blue color for selected edges */
+  stroke-width: 3;
+}
+
+/* Node handle styling */
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  border: 2px solid #0d9488;
+}
+
+.react-flow__handle:hover {
+  background-color: #3b82f6;
+  border-color: #2563eb;
+}
+
+/* Nó em execução */
+.active-execution-node {
+  animation: pulse-execution 1.5s infinite;
+  filter: drop-shadow(0 0 15px rgba(5, 212, 114, 0.9));
+  z-index: 10;
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes pulse-execution {
+  0% {
+    box-shadow: 0 0 0 0 rgba(5, 212, 114, 0.9);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(5, 212, 114, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(5, 212, 114, 0);
+  }
+}
+
+.react-flow__node[data-is-executing="true"] {
+  filter: drop-shadow(0 0 15px rgba(5, 212, 114, 0.9));
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
+}
+
+.react-flow__node[data-is-executing="true"]::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #05d472;
+  border-radius: 8px;
+  animation: pulse-border 1.5s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-border {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0.3;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

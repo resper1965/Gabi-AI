@@ -1,0 +1,31 @@
+{% extends "base_email.html" %}
+
+{% block title %}Welcome to Evo AI{% endblock %}
+
+{% block header %}Evo AI{% endblock %}
+
+{% block content %}
+<h2>Welcome to the Evo AI Platform!</h2>
+<p>Hello {{ user_name }},</p>
+<p>We're thrilled to have you as part of our community. Your account has been successfully verified and you can now start using all the features of our platform.</p>
+
+<h3>Next steps:</h3>
+<ul>
+    <li>Set up your complete profile</li>
+    <li>Explore our AI capabilities</li>
+    <li>Create your first intelligent agent</li>
+</ul>
+
+<p style="text-align: center; margin-top: 30px;">
+    <a href="{{ dashboard_link }}" class="button">Access My Dashboard</a>
+</p>
+
+<p>If you have any questions or need assistance, our support team is available to help you.</p>
+
+<p>Make the most of the power of Evo AI!</p>
+
+<p>Best regards,<br>
+Evo AI Team</p>
+{% endblock %}
+
+{% block footer_message %}This is an automated email. Please do not reply to this message. For support, use our help center.{% endblock %} 
